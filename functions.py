@@ -30,6 +30,6 @@ def f2():
 x = table.HTable()
 
 for i in range(100):
-    x.apply_f(functions.f0, str(i))
+    x.apply_f(f0, str(i))
 
 x.print_table()
