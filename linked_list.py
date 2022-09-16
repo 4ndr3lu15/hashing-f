@@ -25,12 +25,22 @@ class LinkedList:
   
   # print method for the linked list
   def printLL(self):
-    yam = ''
+    foo = ''
     current = self.head
     while(current):
-      yam = yam + str(current.data) + ' -> '
+      foo = foo + str(current.data) + ' -> '
       current = current.next
-    return yam[0:-4] #estamos retornando uma string
+    return foo[0:-4] #estamos retornando uma string
+
+  def get(self, item):
+    current = self.head
+    x = 0
+    while(current):
+      if current.data == item:
+        return [item, 'posição '+ str(x) +' da lista']
+      current = current.next
+      x += 1
+    return [item, 'item não encontrado']
 
 # Singly Linked List with insertion and print methods
 LL = LinkedList()
@@ -38,3 +48,4 @@ LL.insert(3)
 LL.insert(4)
 LL.insert(5)
 print(LL.printLL())
+print(LL.get(5))
