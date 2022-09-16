@@ -1,12 +1,18 @@
-import time
-from typing import Callable
-start_time = time.time()
-for i in range(100):
-    100 + 100
-print("--- %s seconds ---" % (time.time() - start_time))
+import table
+import fun
 
+lexico = []
+with open('lexico_v3.0.txt') as f:
+    lines = f.readlines()
 
-def hash_table(size: int, function: Callable):
-    100 + 100
+for i in range(len(lines)):
+    a = lines[i].split(',')
+    a[3] = a[3][0]
+    lexico.append(a)
 
-hash_table(100, print('100'))
+H = table.HTable()
+H.take_f(fun.f2)
+H.put(lexico)
+# H.print_table()
+print(H.col_cont)
+print(H.meantime_put)

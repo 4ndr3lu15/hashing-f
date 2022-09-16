@@ -1,6 +1,5 @@
-# ignore, file just to play with concepts
-
 # A single node of a singly linked list
+
 class Node:
   # constructor
   def __init__(self, data = None, next=None): 
@@ -34,18 +33,23 @@ class LinkedList:
 
   def get(self, item):
     current = self.head
-    x = 0
-    while(current):
-      if current.data == item:
-        # retorna uma lista com o item procurado e a posição dele na lista encadeada
-        return [item, x] 
+    position = 0
+    positions = []
+    while current:
+      if current.data[0] == item:
+        # adiciona as posições na lista onde o item é encontrado
+        positions.append(position)
       current = current.next
-      x += 1
-    return [item, 'item não encontrado']
+      position += 1
+    return [item, positions] # item e posições da tabela onde o item está
 
-LL = LinkedList()
-LL.insert(3)
-LL.insert(4)
-LL.insert(5)
-print(LL.printLL())
-print(LL.get(5))
+  def strong_get(self, pos):
+    itens = []
+    current = self.head
+    count = 0
+    for i in pos:
+      while count < i:
+        count += 1
+        current = current.next
+      itens.append(current.data)
+    return itens
