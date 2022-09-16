@@ -37,12 +37,12 @@ class LinkedList:
     x = 0
     while(current):
       if current.data == item:
-        return [item, 'posição '+ str(x) +' da lista']
+        # retorna uma lista com o item procurado e a posição dele na lista encadeada
+        return [item, x] 
       current = current.next
       x += 1
     return [item, 'item não encontrado']
 
-# Singly Linked List with insertion and print methods
 LL = LinkedList()
 LL.insert(3)
 LL.insert(4)
